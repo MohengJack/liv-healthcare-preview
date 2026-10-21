@@ -1,0 +1,695 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Liv Healthcare — Exercise Physiology, Physiotherapy & Allied Health</title>
+<meta name="description" content="Liv Healthcare: exercise physiology, physiotherapy, dietetics, occupational therapy and massage therapy in a private, light-filled studio. Longevity · Inspiration · Vitality.">
+<link rel="icon" href="assets/liv-mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1c2242;
+  --ink-soft:#4a5070;
+  --muted:#7b8099;
+  --paper:#f8f6f2;
+  --paper-2:#f1eee8;
+  --mist:#eaf0f8;
+  --line:rgba(28,34,66,.12);
+  --blue:#2f7be8;
+  --indigo:#3d4fe0;
+  --violet:#8a3fe0;
+  --grad:linear-gradient(100deg,var(--blue) 0%,var(--indigo) 50%,var(--violet) 100%);
+  --serif:"Fraunces",Georgia,serif;
+  --sans:"Manrope",system-ui,-apple-system,sans-serif;
+  --r:22px;
+  --wrap:1240px;
+  --gutter:clamp(16px,4vw,48px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter)}
+.eyebrow{font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--ink-soft);display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:28px;height:1px;background:var(--grad)}
+h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.02em;line-height:1.08}
+h2{font-size:clamp(36px,5vw,64px)}
+em.g{font-style:italic;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.06em}
+.ph{border-bottom:1px dashed currentColor;opacity:.75}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:999px;font-weight:600;font-size:15px;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s,background .35s}
+.btn-primary{background:var(--ink);color:#fff}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 30px -12px rgba(61,79,224,.55);background:var(--indigo)}
+.btn-ghost{border:1px solid var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--ink)}
+.btn svg{width:16px;height:16px;transition:transform .35s}
+.btn:hover svg{transform:translateX(3px)}
+
+/* nav */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .4s,box-shadow .4s,padding .4s;padding:22px 0}
+.nav.scrolled{background:rgba(248,246,242,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line);padding:12px 0}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.nav-logo img{height:38px;width:auto}
+.nav-links{display:flex;gap:34px;font-size:14.5px;font-weight:500;color:var(--ink-soft)}
+.nav-links a{position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;right:100%;bottom:-4px;height:1px;background:var(--ink);transition:right .35s}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after{right:0}
+.nav .btn{padding:11px 20px;font-size:14px}
+.menu-btn{display:none;background:none;border:0;width:40px;height:40px;cursor:pointer;color:var(--ink)}
+.menu-btn span{display:block;width:22px;height:1.5px;background:currentColor;margin:5px auto;transition:transform .3s,opacity .3s}
+
+/* hero */
+.hero{position:relative;padding:150px 0 90px;overflow:hidden}
+.hero::before{content:"";position:absolute;width:900px;height:900px;right:-260px;top:-320px;border-radius:50%;background:radial-gradient(closest-side,rgba(47,123,232,.16),rgba(138,63,224,.08) 55%,transparent 75%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,6vw,90px);align-items:center;position:relative}
+.hero h1{font-size:clamp(46px,7.2vw,104px);margin:26px 0 28px}
+.hero p.lead{font-size:19px;color:var(--ink-soft);max-width:30em}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:38px}
+.hero-meta{display:flex;gap:36px;margin-top:56px;padding-top:28px;border-top:1px solid var(--line);flex-wrap:wrap}
+.hero-meta div{font-size:13.5px;color:var(--muted);line-height:1.5}
+.hero-meta strong{display:block;font-family:var(--serif);font-weight:400;font-size:26px;color:var(--ink);letter-spacing:-.01em}
+.hero-media{position:relative}
+.hero-media .frame{border-radius:240px 240px var(--r) var(--r);overflow:hidden;aspect-ratio:4/5;box-shadow:0 40px 80px -40px rgba(28,34,66,.45)}
+.hero-media .frame img{width:100%;height:100%;object-fit:cover}
+.float-card{position:absolute;left:-36px;bottom:42px;background:rgba(255,255,255,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:18px;padding:18px 22px;display:flex;gap:14px;align-items:center;box-shadow:0 20px 40px -20px rgba(28,34,66,.35);max-width:280px}
+.float-card .dot{width:42px;height:42px;border-radius:50%;background:var(--grad);flex:none;display:grid;place-items:center;color:#fff}
+.float-card .dot svg{width:20px;height:20px}
+.float-card b{display:block;font-size:14.5px}
+.float-card small{color:var(--muted);font-size:13px}
+
+/* LIV pillars */
+.pillars{padding:110px 0;background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.pillars-head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:64px;flex-wrap:wrap}
+.pillars-head p{max-width:28em;color:var(--ink-soft)}
+.pillar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.pillar{padding:10px 40px 10px 0;border-left:1px solid var(--line);padding-left:40px}
+.pillar:first-child{border-left:0;padding-left:0}
+.pillar .letter{font-family:var(--serif);font-style:italic;font-size:120px;line-height:.9;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;display:inline-block;padding-right:.1em}
+.pillar h3{font-size:30px;margin:14px 0 12px}
+.pillar p{color:var(--ink-soft);font-size:16px}
+
+/* services */
+.services{padding:130px 0}
+.services-head{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:60px}
+.services-head p{color:var(--ink-soft);max-width:30em}
+.svc-list{border-top:1px solid var(--line)}
+.svc{display:grid;grid-template-columns:80px 1.1fr 1.4fr 40px;gap:30px;align-items:center;padding:34px 0;border-bottom:1px solid var(--line);position:relative;transition:padding .45s cubic-bezier(.2,.7,.2,1)}
+.svc::before{content:"";position:absolute;inset:0 -24px;border-radius:18px;background:var(--mist);opacity:0;transition:opacity .45s;z-index:-1}
+.svc:hover{padding-left:16px;padding-right:16px}
+.svc:hover::before{opacity:1}
+.svc .num{font-family:var(--serif);font-size:15px;color:var(--muted)}
+.svc h3{font-size:clamp(26px,3vw,38px)}
+.svc p{color:var(--ink-soft);font-size:15.5px}
+.svc .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.svc .tags span{font-size:12px;padding:4px 11px;border-radius:999px;border:1px solid var(--line);color:var(--ink-soft);background:rgba(255,255,255,.6)}
+.svc .arrow{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:background .35s,color .35s,border-color .35s}
+.svc .arrow svg{width:15px;height:15px}
+.svc:hover .arrow{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+/* studio */
+.studio{padding:130px 0;background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.studio::before{content:"";position:absolute;width:700px;height:700px;left:-250px;bottom:-350px;border-radius:50%;background:radial-gradient(closest-side,rgba(138,63,224,.35),transparent);pointer-events:none}
+.studio .eyebrow{color:rgba(255,255,255,.7)}
+.studio-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,6vw,90px);align-items:center;position:relative}
+.studio h2{margin:22px 0 26px}
+.studio p{color:rgba(255,255,255,.72);max-width:30em}
+.equip{display:grid;grid-template-columns:1fr 1fr;gap:14px 28px;margin-top:40px}
+.equip li{list-style:none;display:flex;gap:12px;align-items:center;font-size:15px;color:rgba(255,255,255,.88);padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.12)}
+.equip li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--grad);flex:none}
+.gallery{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:16px}
+.gallery figure{border-radius:var(--r);overflow:hidden;position:relative}
+.gallery figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.gallery figure:hover img{transform:scale(1.04)}
+.gallery figure:first-child{grid-row:span 2}
+.gallery figure:nth-child(2),.gallery figure:nth-child(3){aspect-ratio:1/1}
+.gallery figcaption{position:absolute;left:14px;bottom:14px;font-size:12.5px;padding:6px 12px;border-radius:999px;background:rgba(28,34,66,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+
+/* approach */
+.approach{padding:130px 0}
+.approach-head{text-align:center;max-width:760px;margin:0 auto 70px}
+.approach-head .eyebrow{justify-content:center}
+.approach-head h2{margin-top:20px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s}
+.step{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:34px 28px 36px;transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s}
+.step:hover{transform:translateY(-6px);box-shadow:0 30px 50px -30px rgba(28,34,66,.3)}
+.step .n{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--indigo)}
+.step h3{font-size:28px;margin:46px 0 12px}
+.step p{color:var(--ink-soft);font-size:15.5px}
+
+/* funding */
+.funding{padding:0 0 130px}
+.fund-box{background:linear-gradient(135deg,#eef3fb 0%,#f3eefb 100%);border-radius:32px;padding:clamp(36px,6vw,80px);display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:center}
+.fund-box h2{font-size:clamp(32px,4vw,52px);margin-top:20px}
+.fund-box > div > p{color:var(--ink-soft);margin-top:20px}
+.fund-list{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fund{background:rgba(255,255,255,.75);border-radius:16px;padding:20px 22px}
+.fund b{display:block;font-size:16px}
+.fund small{color:var(--muted);font-size:13.5px;line-height:1.5;display:block;margin-top:4px}
+
+/* statement */
+.statement{padding:40px 0 130px;text-align:center}
+.statement blockquote{font-family:var(--serif);font-weight:300;font-size:clamp(30px,4.4vw,58px);line-height:1.18;letter-spacing:-.02em;max-width:18em;margin:0 auto}
+.statement cite{display:block;margin-top:30px;font-style:normal;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+
+/* contact */
+.contact{padding:0 0 120px}
+.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;border-radius:32px;overflow:hidden;background:#fff;border:1px solid var(--line)}
+.contact-main{padding:clamp(36px,6vw,72px)}
+.contact-main h2{margin:20px 0 22px}
+.contact-main > p{color:var(--ink-soft);max-width:28em}
+.contact-rows{margin-top:40px;display:grid;gap:0}
+.crow{display:grid;grid-template-columns:120px 1fr;gap:20px;padding:18px 0;border-top:1px solid var(--line);font-size:15.5px}
+.crow span:first-child{color:var(--muted);font-size:13px;letter-spacing:.14em;text-transform:uppercase;padding-top:3px}
+.contact-img{position:relative;min-height:420px}
+.contact-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+/* footer */
+footer{background:var(--ink);color:rgba(255,255,255,.7);padding:80px 0 40px;font-size:14.5px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-bottom:60px;border-bottom:1px solid rgba(255,255,255,.12)}
+.foot-grid img{width:170px;height:auto}
+.foot-grid h4{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#fff;font-weight:600;margin-bottom:18px}
+.foot-grid ul{list-style:none;display:grid;gap:10px}
+.foot-grid a:hover{color:#fff}
+.foot-bottom{display:flex;justify-content:space-between;gap:20px;padding-top:30px;font-size:13px;flex-wrap:wrap}
+
+/* ribbon — brush-stroke motif from the logo, drawn as you scroll */
+main{position:relative}
+main > section{position:relative}
+main > section > .wrap{position:relative;z-index:2}
+#ribbon{position:absolute;left:0;top:0;width:100%;z-index:1;pointer-events:none;overflow:visible}
+#ribbon .tip{transition:opacity .4s}
+#ribbon .end-dot{transition:r .9s cubic-bezier(.3,1.6,.5,1)}
+
+/* intro: the logo is brushed on, then the curtain lifts */
+.intro{position:fixed;inset:0;z-index:100;background:var(--paper);display:grid;place-items:center;overflow:hidden;
+  animation:introOut 1s 2.15s cubic-bezier(.75,0,.2,1) forwards;cursor:pointer}
+.intro.skip{animation-delay:0s;animation-duration:.6s}
+.intro-brush{position:absolute;left:50%;top:50%;width:min(1100px,140vw);height:min(260px,40vw);translate:-50% -46%;rotate:-6deg;
+  clip-path:inset(0 100% 0 0);animation:brushIn 1.1s .05s cubic-bezier(.65,0,.25,1) forwards}
+.intro-logo{position:relative;display:flex;flex-direction:column;align-items:center;gap:clamp(10px,2vw,16px);width:min(260px,58vw)}
+.intro-mark{width:100%;clip-path:inset(-10% 100% -10% 0);animation:brushIn 1.05s .35s cubic-bezier(.6,0,.2,1) forwards}
+.intro-word{width:72%;opacity:0;translate:0 10px;letter-spacing:.1em;animation:wordIn .8s 1.2s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes brushIn{to{clip-path:inset(-10% -5% -10% 0)}}
+@keyframes wordIn{to{opacity:1;translate:0 0}}
+/* the curtain lifts with a soft curved edge */
+@keyframes introOut{0%{clip-path:ellipse(150% 150% at 50% 0%)}100%{clip-path:ellipse(150% 0% at 50% 0%);visibility:hidden}}
+
+/* hero entrance waits for the intro */
+.hero .rv{transition-delay:2.3s}.hero .rv.d1{transition-delay:2.4s}.hero .rv.d2{transition-delay:2.5s}.hero .rv.d3{transition-delay:2.6s}
+.lines.rv{opacity:1;transform:none}
+.lines .ln{display:block;overflow:hidden;padding:0 .3em .12em;margin:0 -.3em -.12em}
+.lines .ln>span{display:inline-block;transform:translateY(110%);transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.lines.in .ln>span{transform:none}
+.lines .ln:nth-child(1)>span{transition-delay:2.25s}.lines .ln:nth-child(2)>span{transition-delay:2.37s}.lines .ln:nth-child(3)>span{transition-delay:2.49s}
+.hero .swash::after{transition-delay:3.1s}
+
+/* arch photo unfolds upward */
+.hero-media.rv{opacity:1;transform:none}
+.hero-media .frame{clip-path:inset(100% 0 0 0 round 240px 240px 22px 22px);transition:clip-path 1.5s 2.3s cubic-bezier(.7,0,.2,1)}
+.hero-media.in .frame{clip-path:inset(0 0 0 0 round 240px 240px 22px 22px)}
+.hero-media .frame img{scale:1.18;transition:scale 2.2s 2.3s cubic-bezier(.2,.7,.2,1)}
+.hero-media.in .frame img{scale:1.08}
+.float-card{opacity:0;translate:0 24px;transition:opacity .9s 3.2s,translate .9s 3.2s cubic-bezier(.2,.7,.2,1)}
+.hero-media.in .float-card{opacity:1;translate:0 0}
+
+/* L · I · V painted on like brush strokes */
+.pillar .letter{clip-path:inset(-10% 100% -10% 0);transition:clip-path 1.3s .35s cubic-bezier(.6,0,.2,1)}
+.pillar.d1 .letter{transition-delay:.55s}.pillar.d2 .letter{transition-delay:.75s}
+.pillar.in .letter{clip-path:inset(-10% -10% -10% 0)}
+
+/* silk sheen moving through the gradient words */
+em.g{background-size:220% 100%;animation:sheen 7s ease-in-out infinite alternate}
+@keyframes sheen{from{background-position:0% 50%}to{background-position:100% 50%}}
+
+/* eyebrow rule grows in */
+.eyebrow::before{width:0;transition:width .9s .3s cubic-bezier(.2,.7,.2,1)}
+.eyebrow.in::before,.in .eyebrow::before{width:28px}
+
+/* brush underline on service hover */
+.svc h3{position:relative;width:fit-content}
+.svc h3::after{content:"";position:absolute;left:-3%;right:-6%;bottom:-.08em;height:.34em;z-index:-1;background:var(--brush) no-repeat center/100% 100%;transform:scaleX(0);transform-origin:left;transition:transform .7s cubic-bezier(.6,0,.2,1)}
+.svc:hover h3::after{transform:scaleX(1)}
+
+/* parallax photos (translate is set from JS, zoom stays on transform) */
+[data-parallax]{will-change:translate}
+.gallery figure img{scale:1.12}
+.swash{position:relative;display:inline-block}
+.swash::after{content:"";position:absolute;left:-4%;right:-10%;bottom:-.02em;height:.32em;z-index:-1;
+  background:var(--brush) no-repeat center/100% 100%;
+  transform-origin:left;transform:scaleX(0);transition:transform 1.2s .6s cubic-bezier(.2,.7,.2,1)}
+:root{--brush:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 40' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%232f7be8'/%3E%3Cstop offset='1' stop-color='%238a3fe0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M2 31 C50 17 150 6 298 8 C230 13 120 21 8 37 Z' fill='url(%23g)' opacity='.34'/%3E%3Cpath d='M12 30 C80 18 170 11 286 11' stroke='%23fff' stroke-width='1.2' fill='none' opacity='.55' stroke-dasharray='70 8 40 14 90'/%3E%3Cpath d='M20 39 C90 27 170 19 250 17' stroke='url(%23g)' stroke-width='1' fill='none' opacity='.4' stroke-dasharray='50 30 80'/%3E%3C/svg%3E")}
+.in .swash::after,.swash.in::after{transform:scaleX(1)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(28px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}*{transition:none!important;animation:none!important}
+  .intro{display:none}.lines .ln>span{transform:none}.hero-media .frame{clip-path:none}.float-card{opacity:1;translate:none}.pillar .letter{clip-path:none}.eyebrow::before{width:28px}.swash::after{transform:none}}
+
+/* responsive */
+@media (max-width:1020px){
+  .nav-links,.nav .btn{display:none}
+  .menu-btn{display:block}
+  .nav.open{background:var(--paper);box-shadow:0 1px 0 var(--line)}
+  .nav.open .nav-links{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:var(--paper);padding:8px var(--gutter) 24px;box-shadow:0 20px 30px -20px rgba(28,34,66,.25)}
+  .nav.open .nav-links a{padding:14px 0;border-bottom:1px solid var(--line);font-size:17px}
+  .nav.open .menu-btn span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+  .nav.open .menu-btn span:nth-child(2){opacity:0}
+  .nav.open .menu-btn span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+  .hero-grid,.studio-grid,.fund-box,.contact-grid,.services-head{grid-template-columns:1fr}
+  .services-head{gap:24px}
+  .hero{padding-top:120px}
+  .hero-media{max-width:520px}
+  .float-card{left:16px}
+  .steps{grid-template-columns:1fr 1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:720px){
+  body{font-size:16px}
+  .pillar-grid{grid-template-columns:1fr;gap:40px}
+  .pillar,.pillar:first-child{border-left:0;padding:0;border-top:1px solid var(--line);padding-top:28px}
+  .pillar:first-child{border-top:0;padding-top:0}
+  .pillar .letter{font-size:88px}
+  .svc{grid-template-columns:1fr;gap:10px;padding:28px 0}
+  .svc .arrow{display:none}
+  .svc:hover{padding-left:0;padding-right:0}
+  .svc::before{display:none}
+  .steps,.fund-list,.equip{grid-template-columns:1fr}
+  .step h3{margin-top:24px}
+  .gallery{grid-template-columns:1fr 1fr}
+  .gallery figure:first-child{grid-column:span 2;grid-row:auto;aspect-ratio:4/3}
+  .crow{grid-template-columns:1fr;gap:4px}
+  .foot-grid{grid-template-columns:1fr}
+  .hero-meta{gap:24px}
+  .pillars,.services,.studio,.approach{padding:90px 0}
+}
+</style>
+</head>
+<body>
+
+<div class="intro" id="intro" aria-hidden="true">
+  <svg class="intro-brush" viewBox="0 0 1000 220" preserveAspectRatio="none">
+    <defs><linearGradient id="ig" x1="0" x2="1"><stop offset="0" stop-color="#2f7be8"/><stop offset=".55" stop-color="#3d4fe0"/><stop offset="1" stop-color="#8a3fe0"/></linearGradient></defs>
+    <path d="M10 150 C200 70 520 40 990 60 C760 92 430 128 40 200 Z" fill="url(#ig)" opacity=".16"/>
+    <path d="M60 150 C300 92 600 66 960 70" stroke="#fff" stroke-width="2" fill="none" opacity=".7" stroke-dasharray="180 14 90 30 240 20 120"/>
+    <path d="M40 176 C280 120 560 92 900 86" stroke="url(#ig)" stroke-width="1.4" fill="none" opacity=".35" stroke-dasharray="120 40 200 60 90"/>
+  </svg>
+  <div class="intro-logo">
+    <img class="intro-mark" src="assets/liv-mark.png" alt="">
+    <img class="intro-word" src="assets/liv-wordmark.png" alt="">
+  </div>
+</div>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#top" class="nav-logo" aria-label="Liv Healthcare home"><img src="assets/liv-mark.png" alt="Liv Healthcare"></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#services">Services</a>
+      <a href="#studio">The Studio</a>
+      <a href="#approach">Our Approach</a>
+      <a href="#funding">Funding</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="btn btn-primary">Book an appointment</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+<svg id="ribbon" aria-hidden="true">
+  <defs>
+    <linearGradient id="ribbonGrad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="1000">
+      <stop offset="0" stop-color="#2f7be8"/>
+      <stop offset=".45" stop-color="#3d4fe0"/>
+      <stop offset="1" stop-color="#8a3fe0"/>
+    </linearGradient>
+    <radialGradient id="tipGlow"><stop offset="0" stop-color="#8a3fe0" stop-opacity=".55"/><stop offset="1" stop-color="#8a3fe0" stop-opacity="0"/></radialGradient>
+    <!-- the brush is revealed by a fat stroke running along its centre line -->
+    <mask id="ribbonReveal" maskUnits="userSpaceOnUse">
+      <path id="revealPath" fill="none" stroke="#fff" stroke-linecap="round" d=""/>
+    </mask>
+  </defs>
+  <path id="ribbonPath" d="" fill="none" stroke="none"/>
+  <g mask="url(#ribbonReveal)">
+    <path class="halo" d="" fill="none" stroke="url(#ribbonGrad)" stroke-linecap="round" opacity=".022"/>
+    <path class="body" d="" fill="url(#ribbonGrad)" opacity=".86"/>
+    <g class="streaks" fill="none" stroke-linecap="round"></g>
+  </g>
+  <circle class="tip" r="34" fill="url(#tipGlow)"/>
+  <circle class="end-dot" r="0" fill="url(#ribbonGrad)"/>
+</svg>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow rv">Exercise Physiology · Physiotherapy · Allied Health</div>
+      <h1 class="rv lines"><span class="ln"><span>Move well.</span></span><span class="ln"><span>Live <em class="g">well.</em></span></span><span class="ln"><span>For <span class="swash">longer.</span></span></span></h1>
+      <p class="lead rv d2">Evidence-based rehabilitation and exercise care, delivered one-on-one in a private, light-filled studio — so you can recover, get stronger, and keep doing what you love.</p>
+      <div class="hero-cta rv d3">
+        <a href="#contact" class="btn btn-primary">Book an appointment
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a>
+        <a href="#services" class="btn btn-ghost">Explore our services</a>
+      </div>
+      <div class="hero-meta rv d3">
+        <div><strong>5</strong>allied health disciplines</div>
+        <div><strong>1:1</strong>clinician-led sessions</div>
+        <div><strong>NDIS</strong>Medicare · DVA · Private</div>
+      </div>
+    </div>
+    <div class="hero-media rv d2">
+      <div class="frame"><img data-parallax=".06" src="assets/studio-reformer.jpg" alt="Liv Healthcare studio with Pilates reformers, dumbbells and exercise bikes"></div>
+      <div class="float-card">
+        <div class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div>
+        <div><b>Clinical Pilates studio</b><small>Reformers, strength &amp; cardio — all in one room</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIV PILLARS -->
+<section class="pillars">
+  <div class="wrap">
+    <div class="pillars-head">
+      <div>
+        <div class="eyebrow rv">What Liv stands for</div>
+        <h2 class="rv d1" style="margin-top:20px">Three words.<br>One <em class="g">philosophy.</em></h2>
+      </div>
+      <p class="rv d2">Our name is our promise. Every program we design is built around helping you live longer, feel inspired, and move with real vitality.</p>
+    </div>
+    <div class="pillar-grid">
+      <div class="pillar rv"><span class="letter">L</span><h3>Longevity</h3><p>Strength, balance and cardiovascular fitness that protect your independence for decades — not just weeks.</p></div>
+      <div class="pillar rv d1"><span class="letter">I</span><h3>Inspiration</h3><p>Clear goals, honest progress tracking and clinicians who genuinely care. Motivation that lasts beyond the clinic.</p></div>
+      <div class="pillar rv d2"><span class="letter">V</span><h3>Vitality</h3><p>More energy, less pain, better sleep. Whole-person care across movement, nutrition and daily function.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="services-head">
+      <div>
+        <div class="eyebrow rv">Our services</div>
+        <h2 class="rv d1" style="margin-top:20px">Five disciplines,<br>one <em class="g">team</em> around you.</h2>
+      </div>
+      <p class="rv d2">Your clinicians work together under one roof, sharing notes and goals — so your rehab, nutrition and day-to-day function all move in the same direction.</p>
+    </div>
+    <div class="svc-list">
+      <a href="#contact" class="svc rv">
+        <span class="num">01</span>
+        <h3>Exercise Physiology</h3>
+        <div><p>Tailored, clinically prescribed exercise to manage chronic conditions, rebuild after injury and improve long-term health.</p>
+          <div class="tags"><span>Chronic disease</span><span>Diabetes &amp; heart health</span><span>Falls prevention</span></div></div>
+        <span class="arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span>
+      </a>
+      <a href="#contact" class="svc rv">
+        <span class="num">02</span>
+        <h3>Physiotherapy</h3>
+        <div><p>Thorough assessment and hands-on treatment for pain, injury and post-surgical recovery, paired with a clear plan to get you moving.</p>
+          <div class="tags"><span>Back &amp; neck pain</span><span>Sports injury</span><span>Post-op rehab</span></div></div>
+        <span class="arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span>
+      </a>
+      <a href="#contact" class="svc rv">
+        <span class="num">03</span>
+        <h3>Dietetics</h3>
+        <div><p>Practical, personalised nutrition advice from an accredited dietitian — for weight, gut health, chronic conditions and performance.</p>
+          <div class="tags"><span>Weight management</span><span>Gut health</span><span>Meal planning</span></div></div>
+        <span class="arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span>
+      </a>
+      <a href="#contact" class="svc rv">
+        <span class="num">04</span>
+        <h3>Occupational Therapy</h3>
+        <div><p>Support to do the everyday things that matter — at home, at work and in the community — with confidence and independence.</p>
+          <div class="tags"><span>Daily living</span><span>Home assessments</span><span>NDIS support</span></div></div>
+        <span class="arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span>
+      </a>
+      <a href="#contact" class="svc rv">
+        <span class="num">05</span>
+        <h3>Massage Therapy</h3>
+        <div><p>Remedial and therapeutic massage to ease tension, speed recovery and complement your treatment program.</p>
+          <div class="tags"><span>Remedial</span><span>Sports recovery</span><span>Relaxation</span></div></div>
+        <span class="arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- STUDIO -->
+<section class="studio" id="studio">
+  <div class="wrap studio-grid">
+    <div>
+      <div class="eyebrow rv">The studio</div>
+      <h2 class="rv d1">A calm, private space <em class="g">built for progress.</em></h2>
+      <p class="rv d2">Natural light, tree-top views and every piece of equipment your program needs — from Pilates reformers to a full strength rack. No crowds, no queues, just focused one-on-one care.</p>
+      <ul class="equip rv d3">
+        <li>Clinical Pilates reformers</li>
+        <li>Power rack &amp; cable pulley</li>
+        <li>Recumbent &amp; upright bikes</li>
+        <li>Free weights &amp; dumbbells</li>
+        <li>Balance &amp; stability tools</li>
+        <li>Resistance bands &amp; mats</li>
+      </ul>
+    </div>
+    <div class="gallery">
+      <figure class="rv"><img data-parallax=".08" src="assets/studio-rehab.jpg" alt="Rehabilitation corner with dumbbells, stability balls and recumbent bike"><figcaption>Rehab &amp; conditioning</figcaption></figure>
+      <figure class="rv d1"><img data-parallax=".08" src="assets/studio-reformer.jpg" alt="Pilates reformers in the studio"><figcaption>Clinical Pilates</figcaption></figure>
+      <figure class="rv d2"><img data-parallax=".08" src="assets/studio-strength.jpg" alt="Strength rack with bench and cable pulley"><figcaption>Strength</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="approach" id="approach">
+  <div class="wrap">
+    <div class="approach-head">
+      <div class="eyebrow rv">How we work</div>
+      <h2 class="rv d1">A clear path from <em class="g">first visit</em> to feeling your best.</h2>
+    </div>
+    <div class="steps">
+      <div class="step rv"><span class="n">i.</span><h3>Assess</h3><p>An unhurried initial consultation to understand your history, goals and how you move.</p></div>
+      <div class="step rv d1"><span class="n">ii.</span><h3>Plan</h3><p>A personalised program with clear milestones, shared across your Liv care team.</p></div>
+      <div class="step rv d2"><span class="n">iii.</span><h3>Train</h3><p>Supervised, progressive sessions in our studio — plus a simple plan for home.</p></div>
+      <div class="step rv d3"><span class="n">iv.</span><h3>Thrive</h3><p>Regular reviews and reports to your GP, so progress is measured and maintained.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FUNDING -->
+<section class="funding" id="funding">
+  <div class="wrap">
+    <div class="fund-box rv">
+      <div>
+        <div class="eyebrow">Funding &amp; rebates</div>
+        <h2>Care that's <em class="g">accessible.</em></h2>
+        <p>We work with a range of funding pathways. Not sure what you're eligible for? Get in touch and our team will help you work it out.</p>
+      </div>
+      <div class="fund-list">
+        <div class="fund"><b>NDIS</b><small>Self-managed and plan-managed participants welcome.</small></div>
+        <div class="fund"><b>Medicare</b><small>Rebates with a GP Chronic Disease Management plan.</small></div>
+        <div class="fund"><b>DVA</b><small>Care for eligible veterans with a valid referral.</small></div>
+        <div class="fund"><b>Private health</b><small>On-the-spot claiming with most major funds.</small></div>
+        <div class="fund"><b>WorkCover</b><small>Workplace injury rehabilitation and return-to-work.</small></div>
+        <div class="fund"><b>Self-funded</b><small>Simple, transparent pricing — no referral needed.</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATEMENT -->
+<section class="statement">
+  <div class="wrap">
+    <blockquote class="rv">“Healthcare shouldn't just fix what hurts. It should help you <em class="g">live fully</em> — today, and for years to come.”</blockquote>
+    <cite class="rv d1">The Liv Healthcare team</cite>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-grid rv">
+      <div class="contact-main">
+        <div class="eyebrow">Book a visit</div>
+        <h2>Start your <em class="g">Liv</em> journey.</h2>
+        <p>Book an initial consultation online or give us a call. No referral is needed for private appointments.</p>
+        <div class="hero-cta">
+          <a href="#" class="btn btn-primary">Book online
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a>
+          <a href="#" class="btn btn-ghost">Call the clinic</a>
+        </div>
+        <div class="contact-rows">
+          <div class="crow"><span>Address</span><span class="ph">Street address, Suburb NSW 0000</span></div>
+          <div class="crow"><span>Phone</span><span class="ph">(02) 0000 0000</span></div>
+          <div class="crow"><span>Email</span><span class="ph">hello@livhealthcare.com.au</span></div>
+          <div class="crow"><span>Hours</span><span class="ph">Mon–Fri 7am–7pm · Sat 8am–1pm</span></div>
+        </div>
+      </div>
+      <div class="contact-img"><img src="assets/studio-rehab.jpg" alt="Liv Healthcare studio"></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><img src="assets/liv-logo-white.png" alt="Liv Healthcare — Longevity, Inspiration, Vitality"></div>
+      <div><h4>Services</h4><ul>
+        <li><a href="#services">Exercise Physiology</a></li><li><a href="#services">Physiotherapy</a></li><li><a href="#services">Dietetics</a></li><li><a href="#services">Occupational Therapy</a></li><li><a href="#services">Massage Therapy</a></li></ul></div>
+      <div><h4>Clinic</h4><ul>
+        <li><a href="#studio">The Studio</a></li><li><a href="#approach">Our Approach</a></li><li><a href="#funding">Funding</a></li><li><a href="#contact">Contact</a></li></ul></div>
+      <div><h4>Visit</h4><ul>
+        <li class="ph">Street address</li><li class="ph">Suburb NSW 0000</li><li class="ph">(02) 0000 0000</li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr">2026</span> Liv Healthcare. All rights reserved.</span>
+      <span>Longevity · Inspiration · Vitality</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav=document.getElementById('nav'),btn=document.getElementById('menuBtn');
+  const onScroll=()=>nav.classList.toggle('scrolled',scrollY>20);
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+  btn.addEventListener('click',()=>{const o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o)});
+  document.querySelectorAll('#navLinks a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');btn.setAttribute('aria-expanded',false)}));
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+  addEventListener('load',()=>document.body.classList.add('loaded'));
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  if('scrollRestoration' in history)history.scrollRestoration='manual';
+  // tap to skip the intro
+  const intro=document.getElementById('intro');intro.addEventListener('click',()=>intro.classList.add('skip'));
+  intro.addEventListener('animationend',e=>{if(e.animationName==='introOut')intro.remove()});
+
+  // ── Ribbon: one continuous calligraphy stroke (like the brush in the logo) that weaves
+  //    between sections and paints itself as you scroll.
+  (()=>{
+    const NS='http://www.w3.org/2000/svg';
+    const main=document.querySelector('main'),svg=document.getElementById('ribbon'),
+      path=document.getElementById('ribbonPath'),grad=document.getElementById('ribbonGrad'),
+      reveal=document.getElementById('revealPath'),mask=document.getElementById('ribbonReveal'),
+      body=svg.querySelector('.body'),halo=svg.querySelector('.halo'),streaks=svg.querySelector('.streaks'),
+      tip=svg.querySelector('.tip'),dot=svg.querySelector('.end-dot');
+    const still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let len=0,pts=[],mainTop=0,cur=0,goal=0,base=30,raf=0,started=false;
+
+    // seeded randomness so the brush looks the same on every visit/resize
+    let seed=11;const rnd=()=>(seed=seed*16807%2147483647)/2147483647;
+    const wave=(a,b,c)=>x=>.5*Math.sin(x*.0023+a)+.3*Math.sin(x*.0061+b)+.2*Math.sin(x*.017+c);
+
+    // Catmull-Rom → cubic Bézier, a smooth curve through the waypoints
+    const smooth=P=>{let d=`M${P[0][0]},${P[0][1]}`;
+      for(let i=0;i<P.length-1;i++){const p0=P[i-1]||P[i],p1=P[i],p2=P[i+1],p3=P[i+2]||p2;
+        d+=` C${p1[0]+(p2[0]-p0[0])/6},${p1[1]+(p2[1]-p0[1])/6} ${p2[0]-(p3[0]-p1[0])/6},${p2[1]-(p3[1]-p1[1])/6} ${p2[0]},${p2[1]}`}
+      return d};
+    const f=n=>n.toFixed(1);
+
+    function build(){
+      seed=11;
+      const W=main.clientWidth,H=main.scrollHeight,mob=W<720;
+      mainTop=main.getBoundingClientRect().top+scrollY;
+      svg.setAttribute('viewBox',`0 0 ${W} ${H}`);svg.style.height=H+'px';
+      grad.setAttribute('y2',H);
+      ['x','y'].forEach(k=>mask.setAttribute(k,-300));mask.setAttribute('width',W+600);mask.setAttribute('height',H+600);
+
+      // route: keep to the side margins where there is room, cross over in the gaps between sections
+      const free=Math.max(0,(W-1240)/2),L=free>70?free*.55:W*(mob?.035:.03),R=W-L,wob=Math.min(40,W*.03);
+      const secs=[...main.querySelectorAll(':scope > section')].map(s=>({t:s.offsetTop,b:s.offsetTop+s.offsetHeight}));
+      const hero=secs[0],way=[[-80,hero.b*.5],[W*.06,hero.b-90],[W*.3,hero.b-26],[W*.62,hero.b-40],[R,hero.b+60]];
+      let i=-1;
+      secs.slice(1).forEach(s=>{
+        const h=s.b-s.t;
+        if(h<560){i--;return} // short sections (the quote): stay on the same side
+        i++;const x=i%2?L:R,inward=i%2?1:-1;
+        if(i===0)way.push([x+inward*wob,s.t+h*.5],[x,s.b-90]);
+        else way.push([x,s.t+90],[x+inward*wob,s.t+h*.5],[x,s.b-90]);
+      });
+      const last=secs[secs.length-1];way.push([W*.47,last.b-40]);
+      const d=smooth(way);path.setAttribute('d',d);reveal.setAttribute('d',d);halo.setAttribute('d',d);
+      len=path.getTotalLength();
+
+      // sample the centre line
+      base=mob?14:36;
+      const step=5,N=Math.ceil(len/step);pts=[];
+      for(let k=0;k<=N;k++){const l=Math.min(len,k*step),p=path.getPointAtLength(l);pts.push({l,x:p.x,y:p.y})}
+      // calligraphic width: a flat brush held at an angle → broad on sweeping crossings, slim on the long runs
+      const nib=[Math.sin(.4),Math.cos(.4)],press=wave(rnd()*6,rnd()*6,rnd()*6),rough=wave(rnd()*6,rnd()*6,rnd()*6);
+      pts.forEach((p,k)=>{
+        const a=pts[Math.max(0,k-2)],b=pts[Math.min(pts.length-1,k+2)];
+        let tx=b.x-a.x,ty=b.y-a.y;const m=Math.hypot(tx,ty)||1;tx/=m;ty/=m;
+        p.nx=-ty;p.ny=tx;
+        let w=base*(.16+.84*Math.abs(tx*nib[1]-ty*nib[0]))*(.82+.18*press(p.l));
+        const t0=Math.min(1,p.l/260),t1=Math.min(1,(len-p.l)/420);   // pressure on/off at start & finish
+        w*=Math.sin(t0*Math.PI/2)*(.15+.85*Math.pow(t1,.6));
+        p.w=w;
+        p.e1=w/2*(1+.1*rough(p.l)+(rnd()-.5)*.09);       // ragged, slightly uneven edges
+        p.e2=w/2*(1-.1*rough(p.l+900)+(rnd()-.5)*.09);
+      });
+      let dd='M'+pts.map(p=>f(p.x+p.nx*p.e1)+','+f(p.y+p.ny*p.e1)).join('L');
+      dd+='L'+pts.slice().reverse().map(p=>f(p.x-p.nx*p.e2)+','+f(p.y-p.ny*p.e2)).join('L')+'Z';
+      body.setAttribute('d',dd);
+      halo.style.strokeWidth=base*2.4;
+
+      // dry-brush: broken light streaks inside the stroke + a few stray bristles outside it
+      streaks.replaceChildren();
+      const line=(off,sw,stroke,op,dash)=>{
+        const el=document.createElementNS(NS,'path');
+        el.setAttribute('d','M'+pts.map(p=>f(p.x+p.nx*p.w*off)+','+f(p.y+p.ny*p.w*off)).join('L'));
+        el.setAttribute('stroke',stroke);el.setAttribute('stroke-width',sw);el.setAttribute('opacity',op);
+        el.setAttribute('stroke-dasharray',dash);streaks.appendChild(el)};
+      const dash=(on,off)=>Array.from({length:8},()=>`${f(on*(.3+rnd()))} ${f(off*(.2+rnd()))}`).join(' ');
+      const k=mob?.6:1;
+      for(let n=0;n<7;n++)line(-.36+n*.12+(rnd()-.5)*.05,(.5+rnd()*1.3)*k,'#fff',.22+rnd()*.38,dash(260,60));
+      line(.58,.9*k,'url(#ribbonGrad)',.45,dash(140,240));
+      line(-.62,.7*k,'url(#ribbonGrad)',.35,dash(90,300));
+      line(.7,.5*k,'url(#ribbonGrad)',.3,dash(60,420));
+
+      reveal.style.strokeWidth=base*2+60;reveal.style.strokeDasharray=len;
+      const e=pts[pts.length-1];dot.setAttribute('cx',e.x+base*1.1);dot.setAttribute('cy',e.y-base*.15);
+      goal=target();if(still)cur=len;paint();
+      if(!started){started=true;setTimeout(()=>{if(!raf)raf=requestAnimationFrame(tick)},still?0:2400)}
+      else if(!raf)raf=requestAnimationFrame(tick);
+    }
+    // how far the brush should have travelled: down to a line ~70% of the way down the screen
+    function target(){
+      if(still||!pts.length)return len;
+      const y=scrollY+innerHeight*.72-mainTop;let best=0;
+      for(let k=0;k<pts.length;k++)if(pts[k].y<=y)best=k;
+      return pts[best].l}
+    function paint(){
+      reveal.style.strokeDashoffset=len-cur;
+      const p=path.getPointAtLength(cur);tip.setAttribute('cx',p.x);tip.setAttribute('cy',p.y);
+      const done=cur>len-8;tip.style.opacity=done||cur<40?0:1;
+      dot.setAttribute('r',done?base*.5:0);
+    }
+    // ease the brush toward its goal so it glides rather than jumps
+    function tick(){cur+=(goal-cur)*.075;if(Math.abs(goal-cur)<.5)cur=goal;paint();raf=cur!==goal?requestAnimationFrame(tick):0}
+    addEventListener('scroll',()=>{goal=target();if(started&&!raf)raf=requestAnimationFrame(tick)},{passive:true});
+    let rt;const rebuild=()=>{clearTimeout(rt);rt=setTimeout(build,150)};
+    addEventListener('resize',rebuild);new ResizeObserver(rebuild).observe(main);
+    document.fonts?.ready.then(build);build();
+  })();
+
+  // ── Gentle parallax on photos
+  (()=>{
+    if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+    const imgs=[...document.querySelectorAll('[data-parallax]')];let raf=0;
+    const run=()=>{raf=0;const vh=innerHeight;
+      imgs.forEach(img=>{const r=img.parentElement.getBoundingClientRect();if(r.bottom<0||r.top>vh)return;
+        const c=(r.top+r.height/2-vh/2);img.style.translate=`0 ${(-c*img.dataset.parallax).toFixed(1)}px`})};
+    addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(run)},{passive:true});run();
+  })();
+</script>
+</body>
+</html>
