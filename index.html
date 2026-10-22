@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Liv Healthcare — Exercise Physiology, Physiotherapy & Allied Health</title>
-<meta name="description" content="Liv Healthcare: exercise physiology, physiotherapy, dietetics, occupational therapy and massage therapy in a private, light-filled studio. Longevity · Inspiration · Vitality.">
+<title>LIV Healthcare — Exercise Physiology, Physiotherapy & Allied Health</title>
+<meta name="description" content="LIV Healthcare: exercise physiology, physiotherapy, dietetics, occupational therapy and massage therapy in a private, light-filled studio. Longevity · Inspiration · Vitality.">
 <link rel="icon" href="assets/liv-mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -180,7 +180,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.7);padding:80px 0 40px;font
 .foot-bottom{display:flex;justify-content:space-between;gap:20px;padding-top:30px;font-size:13px;flex-wrap:wrap}
 
 /* ribbon — brush-stroke motif from the logo, drawn as you scroll */
-main{position:relative}
+main{position:relative;overflow-x:hidden;overflow-x:clip}
 main > section{position:relative}
 main > section > .wrap{position:relative;z-index:2}
 #ribbon{position:absolute;left:0;top:0;width:100%;z-index:1;pointer-events:none;overflow:visible}
@@ -247,6 +247,57 @@ em.g{background-size:220% 100%;animation:sheen 7s ease-in-out infinite alternate
 :root{--brush:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 40' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%232f7be8'/%3E%3Cstop offset='1' stop-color='%238a3fe0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M2 31 C50 17 150 6 298 8 C230 13 120 21 8 37 Z' fill='url(%23g)' opacity='.34'/%3E%3Cpath d='M12 30 C80 18 170 11 286 11' stroke='%23fff' stroke-width='1.2' fill='none' opacity='.55' stroke-dasharray='70 8 40 14 90'/%3E%3Cpath d='M20 39 C90 27 170 19 250 17' stroke='url(%23g)' stroke-width='1' fill='none' opacity='.4' stroke-dasharray='50 30 80'/%3E%3C/svg%3E")}
 .in .swash::after,.swash.in::after{transform:scaleX(1)}
 
+/* founder */
+.founder{padding:130px 0}
+.founder-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(40px,7vw,110px);align-items:center}
+.portrait{position:relative;max-width:440px}
+.portrait.rv{opacity:1;transform:none}
+.portrait .frame{position:relative;border-radius:240px 240px var(--r) var(--r);overflow:hidden;aspect-ratio:4/5;background:#e9e6e1;
+  box-shadow:0 40px 80px -40px rgba(28,34,66,.4);clip-path:inset(100% 0 0 0 round 240px 240px 22px 22px);transition:clip-path 1.4s .1s cubic-bezier(.7,0,.2,1)}
+.portrait.in .frame{clip-path:inset(0 0 0 0 round 240px 240px 22px 22px)}
+.portrait .frame img{width:100%;height:100%;object-fit:cover;object-position:50% 15%;scale:1.08}
+.portrait-brush{position:absolute;left:-28%;bottom:-13%;width:160%;height:40%;rotate:-7deg;z-index:-1;
+  clip-path:inset(-10% 100% -10% 0);transition:clip-path 1.3s .7s cubic-bezier(.6,0,.2,1)}
+.portrait.in .portrait-brush{clip-path:inset(-10% -5% -10% 0)}
+.badge{position:absolute;right:-28px;bottom:36px;background:rgba(255,255,255,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-radius:16px;padding:16px 20px;box-shadow:0 20px 40px -20px rgba(28,34,66,.35);opacity:0;translate:0 18px;transition:opacity .8s 1.3s,translate .8s 1.3s cubic-bezier(.2,.7,.2,1)}
+.portrait.in .badge{opacity:1;translate:0 0}
+.badge b{display:block;font-size:14px}
+.badge small{font-size:12px;letter-spacing:.16em;color:var(--indigo);font-weight:600}
+.founder-copy h2{margin-top:20px}
+.founder-copy .role{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:14px 0 26px}
+.founder-copy > p:not(.role){color:var(--ink-soft);margin-bottom:16px;max-width:34em}
+.creds{list-style:none;margin:34px 0 30px;border-top:1px solid var(--line)}
+.creds li{display:grid;grid-template-columns:1fr 1.2fr;gap:20px;padding:15px 0;border-bottom:1px solid var(--line);font-size:15px}
+.creds b{font-weight:600}
+.creds span{color:var(--ink-soft)}
+.interests .lbl{display:block;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:12px}
+.interests .tags,.svc .tags{display:flex;flex-wrap:wrap;gap:6px}
+.interests .tags span{font-size:13px;padding:6px 13px;border-radius:999px;background:var(--mist);color:var(--ink)}
+
+/* reviews */
+.reviews{padding:130px 0}
+.rev-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:56px;flex-wrap:wrap}
+.rev-head h2{margin-top:20px}
+.rev-src{display:flex;align-items:center;gap:12px;color:var(--ink-soft);font-size:14.5px}
+.stars{color:#f2b33d;letter-spacing:2px;font-size:15px}
+.rev-grid{display:grid;grid-template-columns:1.35fr 1fr;grid-template-rows:auto auto;gap:20px}
+.review{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:38px 36px 32px;display:flex;flex-direction:column;justify-content:space-between;gap:28px;
+  transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s}
+.review:hover{transform:translateY(-4px);box-shadow:0 30px 50px -30px rgba(28,34,66,.3)}
+.review.feature{grid-row:span 2;background:var(--ink);color:#fff;border-color:transparent;overflow:hidden}
+.review.feature::after{content:"";position:absolute;width:420px;height:420px;right:-160px;top:-160px;border-radius:50%;background:radial-gradient(closest-side,rgba(138,63,224,.45),transparent);pointer-events:none}
+.review .qm{font-family:var(--serif);font-style:italic;font-size:110px;line-height:.6;height:44px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.review blockquote{font-family:var(--serif);font-weight:300;font-size:21px;line-height:1.45;letter-spacing:-.01em;position:relative}
+.review.feature blockquote{font-size:clamp(24px,2.4vw,32px);line-height:1.35}
+.review figcaption{display:flex;align-items:center;gap:14px;font-size:14.5px;position:relative}
+.review figcaption b{display:block;font-weight:600}
+.review figcaption .stars{font-size:12px}
+.review .av{width:42px;height:42px;border-radius:50%;background:var(--grad);color:#fff;display:grid;place-items:center;font-weight:600;flex:none}
+@media (max-width:1020px){.founder-grid{grid-template-columns:1fr}.portrait{max-width:420px}.badge{right:12px}}
+@media (max-width:720px){.rev-grid{grid-template-columns:1fr}.review.feature{grid-row:auto}.creds li{grid-template-columns:1fr;gap:2px}.founder,.reviews{padding:90px 0}}
+@media (prefers-reduced-motion:reduce){.portrait .frame{clip-path:none}.portrait-brush{clip-path:none}.badge{opacity:1;translate:none}}
+
 /* reveal */
 .rv{opacity:0;transform:translateY(28px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
 .rv.in{opacity:1;transform:none}
@@ -310,11 +361,13 @@ em.g{background-size:220% 100%;animation:sheen 7s ease-in-out infinite alternate
 
 <header class="nav" id="nav">
   <div class="wrap">
-    <a href="#top" class="nav-logo" aria-label="Liv Healthcare home"><img src="assets/liv-mark.png" alt="Liv Healthcare"></a>
+    <a href="#top" class="nav-logo" aria-label="LIV Healthcare home"><img src="assets/liv-mark.png" alt="LIV Healthcare"></a>
     <nav class="nav-links" id="navLinks">
       <a href="#services">Services</a>
+      <a href="#founder">About</a>
       <a href="#studio">The Studio</a>
       <a href="#approach">Our Approach</a>
+      <a href="#reviews">Reviews</a>
       <a href="#funding">Funding</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -353,20 +406,20 @@ em.g{background-size:220% 100%;animation:sheen 7s ease-in-out infinite alternate
     <div>
       <div class="eyebrow rv">Exercise Physiology · Physiotherapy · Allied Health</div>
       <h1 class="rv lines"><span class="ln"><span>Move well.</span></span><span class="ln"><span>Live <em class="g">well.</em></span></span><span class="ln"><span>For <span class="swash">longer.</span></span></span></h1>
-      <p class="lead rv d2">Evidence-based rehabilitation and exercise care, delivered one-on-one in a private, light-filled studio — so you can recover, get stronger, and keep doing what you love.</p>
+      <p class="lead rv d2">Evidence-based exercise physiology and allied health care, delivered one-on-one in a private, light-filled studio — so you can recover, stay independent, and keep doing what you love.</p>
       <div class="hero-cta rv d3">
         <a href="#contact" class="btn btn-primary">Book an appointment
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a>
         <a href="#services" class="btn btn-ghost">Explore our services</a>
       </div>
       <div class="hero-meta rv d3">
-        <div><strong>5</strong>allied health disciplines</div>
+        <div><strong>ESSA</strong>&amp; SIRA accredited</div>
         <div><strong>1:1</strong>clinician-led sessions</div>
-        <div><strong>NDIS</strong>Medicare · DVA · Private</div>
+        <div><strong>3</strong>English · 普通话 · 上海话</div>
       </div>
     </div>
     <div class="hero-media rv d2">
-      <div class="frame"><img data-parallax=".06" src="assets/studio-reformer.jpg" alt="Liv Healthcare studio with Pilates reformers, dumbbells and exercise bikes"></div>
+      <div class="frame"><img data-parallax=".06" src="assets/studio-reformer.jpg" alt="LIV Healthcare studio with Pilates reformers, dumbbells and exercise bikes"></div>
       <div class="float-card">
         <div class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div>
         <div><b>Clinical Pilates studio</b><small>Reformers, strength &amp; cardio — all in one room</small></div>
@@ -380,7 +433,7 @@ em.g{background-size:220% 100%;animation:sheen 7s ease-in-out infinite alternate
   <div class="wrap">
     <div class="pillars-head">
       <div>
-        <div class="eyebrow rv">What Liv stands for</div>
+        <div class="eyebrow rv">What LIV stands for</div>
         <h2 class="rv d1" style="margin-top:20px">Three words.<br>One <em class="g">philosophy.</em></h2>
       </div>
       <p class="rv d2">Our name is our promise. Every program we design is built around helping you live longer, feel inspired, and move with real vitality.</p>
@@ -407,8 +460,8 @@ em.g{background-size:220% 100%;animation:sheen 7s ease-in-out infinite alternate
       <a href="#contact" class="svc rv">
         <span class="num">01</span>
         <h3>Exercise Physiology</h3>
-        <div><p>Tailored, clinically prescribed exercise to manage chronic conditions, rebuild after injury and improve long-term health.</p>
-          <div class="tags"><span>Chronic disease</span><span>Diabetes &amp; heart health</span><span>Falls prevention</span></div></div>
+        <div><p>Individualised, evidence-based exercise therapy and functional assessment — to manage chronic conditions, recover from injury and build lasting strength and mobility.</p>
+          <div class="tags"><span>Healthy ageing &amp; falls prevention</span><span>Chronic disease</span><span>Neurological conditions</span><span>Work &amp; CTP injury</span><span>Sports performance</span></div></div>
         <span class="arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span>
       </a>
       <a href="#contact" class="svc rv">
@@ -439,6 +492,39 @@ em.g{background-size:220% 100%;animation:sheen 7s ease-in-out infinite alternate
           <div class="tags"><span>Remedial</span><span>Sports recovery</span><span>Relaxation</span></div></div>
         <span class="arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span>
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section class="founder" id="founder">
+  <div class="wrap founder-grid">
+    <div class="portrait rv">
+      <svg class="portrait-brush" viewBox="0 0 1000 220" preserveAspectRatio="none" aria-hidden="true">
+        <defs><linearGradient id="pg" x1="0" x2="1"><stop offset="0" stop-color="#2f7be8"/><stop offset=".55" stop-color="#3d4fe0"/><stop offset="1" stop-color="#8a3fe0"/></linearGradient></defs>
+        <path d="M10 150 C200 70 520 40 990 60 C760 92 430 128 40 200 Z" fill="url(#pg)" opacity=".22"/>
+        <path d="M60 150 C300 92 600 66 960 70" stroke="#fff" stroke-width="2.4" fill="none" opacity=".75" stroke-dasharray="180 14 90 30 240 20 120"/>
+        <path d="M40 176 C280 120 560 92 900 86" stroke="url(#pg)" stroke-width="1.6" fill="none" opacity=".4" stroke-dasharray="120 40 200 60 90"/>
+      </svg>
+      <div class="frame"><img data-parallax=".04" src="assets/steven-gu.jpg" alt="Steven Gu, Founder and Accredited Exercise Physiologist at LIV Healthcare"></div>
+      <div class="badge"><b>Accredited Exercise Physiologist</b><small>ESSA · SIRA</small></div>
+    </div>
+    <div class="founder-copy">
+      <div class="eyebrow rv">Meet the founder</div>
+      <h2 class="rv d1">Steven <em class="g">Gu</em></h2>
+      <p class="role rv d1">Founder &amp; Accredited Exercise Physiologist</p>
+      <p class="rv d2">Steven founded LIV Healthcare to make high-quality allied health care accessible — helping people improve their health, restore function and get back to the activities that matter to them.</p>
+      <p class="rv d2">He specialises in healthy ageing, functional rehabilitation and work-related injury recovery. Through individualised exercise therapy, functional assessments, soft tissue techniques and education, he builds tailored, evidence-based programs around each person's needs and goals.</p>
+      <ul class="creds rv d3">
+        <li><b>Bachelor of Exercise Physiology</b><span>University of New South Wales</span></li>
+        <li><b>Accredited Exercise Physiologist</b><span>Exercise &amp; Sports Science Australia (ESSA)</span></li>
+        <li><b>SIRA-accredited provider</b><span>State Insurance Regulatory Authority, NSW</span></li>
+        <li><b>Additional certifications</b><span>Dry needling · Kinesiology taping · Soft tissue mobilisation</span></li>
+      </ul>
+      <div class="interests rv d3">
+        <span class="lbl">Clinical interests</span>
+        <div class="tags"><span>Falls prevention</span><span>Chronic disease</span><span>Musculoskeletal rehab</span><span>Neurological conditions</span><span>Post-injury recovery</span><span>Weight management</span><span>Sports performance</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -476,9 +562,39 @@ em.g{background-size:220% 100%;animation:sheen 7s ease-in-out infinite alternate
     </div>
     <div class="steps">
       <div class="step rv"><span class="n">i.</span><h3>Assess</h3><p>An unhurried initial consultation to understand your history, goals and how you move.</p></div>
-      <div class="step rv d1"><span class="n">ii.</span><h3>Plan</h3><p>A personalised program with clear milestones, shared across your Liv care team.</p></div>
+      <div class="step rv d1"><span class="n">ii.</span><h3>Plan</h3><p>A personalised program with clear milestones, shared across your LIV care team.</p></div>
       <div class="step rv d2"><span class="n">iii.</span><h3>Train</h3><p>Supervised, progressive sessions in our studio — plus a simple plan for home.</p></div>
       <div class="step rv d3"><span class="n">iv.</span><h3>Thrive</h3><p>Regular reviews and reports to your GP, so progress is measured and maintained.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="rev-head">
+      <div>
+        <div class="eyebrow rv">Client stories</div>
+        <h2 class="rv d1">In their <em class="g">own words.</em></h2>
+      </div>
+      <p class="rev-src rv d2"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span><span>Reviews from Google</span></p>
+    </div>
+    <div class="rev-grid">
+      <figure class="review feature rv">
+        <span class="qm" aria-hidden="true">“</span>
+        <blockquote>Steven Gu is an amazing exercise physiologist. He's patient, friendly, and really knows what he's doing. The sessions were well-structured and suited my condition perfectly. I've seen great progress since starting with him and feel much more confident with my body now. Definitely recommend!</blockquote>
+        <figcaption><span class="av">Y</span><span><b>Yihong W.</b><span class="stars" aria-label="5 out of 5 stars">★★★★★</span></span></figcaption>
+      </figure>
+      <figure class="review rv d1">
+        <span class="qm" aria-hidden="true">“</span>
+        <blockquote>A welcoming clinic with friendly and professional staff. Steven is knowledgeable and supportive, and he adapts the training to suit my needs. I felt comfortable and well cared for throughout my visits. Highly recommend!</blockquote>
+        <figcaption><span class="av">Y</span><span><b>Y. M.</b><span class="stars" aria-label="5 out of 5 stars">★★★★★</span></span></figcaption>
+      </figure>
+      <figure class="review rv d2">
+        <span class="qm" aria-hidden="true">“</span>
+        <blockquote>Thanks for helping to train for marathon!!</blockquote>
+        <figcaption><span class="av">L</span><span><b>Leo S.</b><span class="stars" aria-label="5 out of 5 stars">★★★★★</span></span></figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -493,22 +609,14 @@ em.g{background-size:220% 100%;animation:sheen 7s ease-in-out infinite alternate
         <p>We work with a range of funding pathways. Not sure what you're eligible for? Get in touch and our team will help you work it out.</p>
       </div>
       <div class="fund-list">
-        <div class="fund"><b>NDIS</b><small>Self-managed and plan-managed participants welcome.</small></div>
         <div class="fund"><b>Medicare</b><small>Rebates with a GP Chronic Disease Management plan.</small></div>
-        <div class="fund"><b>DVA</b><small>Care for eligible veterans with a valid referral.</small></div>
-        <div class="fund"><b>Private health</b><small>On-the-spot claiming with most major funds.</small></div>
-        <div class="fund"><b>WorkCover</b><small>Workplace injury rehabilitation and return-to-work.</small></div>
-        <div class="fund"><b>Self-funded</b><small>Simple, transparent pricing — no referral needed.</small></div>
+        <div class="fund"><b>Private health</b><small>Claim with your extras cover.</small></div>
+        <div class="fund"><b>NDIS</b><small>Self-managed and plan-managed participants welcome.</small></div>
+        <div class="fund"><b>WorkCover</b><small>SIRA-accredited care for work-related injuries and return to work.</small></div>
+        <div class="fund"><b>CTP</b><small>Rehabilitation after a motor vehicle accident.</small></div>
+        <div class="fund"><b>Aged care</b><small>Programs that support healthy ageing and independence.</small></div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- STATEMENT -->
-<section class="statement">
-  <div class="wrap">
-    <blockquote class="rv">“Healthcare shouldn't just fix what hurts. It should help you <em class="g">live fully</em> — today, and for years to come.”</blockquote>
-    <cite class="rv d1">The Liv Healthcare team</cite>
   </div>
 </section>
 
@@ -518,7 +626,7 @@ em.g{background-size:220% 100%;animation:sheen 7s ease-in-out infinite alternate
     <div class="contact-grid rv">
       <div class="contact-main">
         <div class="eyebrow">Book a visit</div>
-        <h2>Start your <em class="g">Liv</em> journey.</h2>
+        <h2>Start your <em class="g">LIV</em> journey.</h2>
         <p>Book an initial consultation online or give us a call. No referral is needed for private appointments.</p>
         <div class="hero-cta">
           <a href="#" class="btn btn-primary">Book online
@@ -532,7 +640,7 @@ em.g{background-size:220% 100%;animation:sheen 7s ease-in-out infinite alternate
           <div class="crow"><span>Hours</span><span class="ph">Mon–Fri 7am–7pm · Sat 8am–1pm</span></div>
         </div>
       </div>
-      <div class="contact-img"><img src="assets/studio-rehab.jpg" alt="Liv Healthcare studio"></div>
+      <div class="contact-img"><img src="assets/studio-rehab.jpg" alt="LIV Healthcare studio"></div>
     </div>
   </div>
 </section>
@@ -542,16 +650,16 @@ em.g{background-size:220% 100%;animation:sheen 7s ease-in-out infinite alternate
 <footer>
   <div class="wrap">
     <div class="foot-grid">
-      <div><img src="assets/liv-logo-white.png" alt="Liv Healthcare — Longevity, Inspiration, Vitality"></div>
+      <div><img src="assets/liv-logo-white.png" alt="LIV Healthcare — Longevity, Inspiration, Vitality"></div>
       <div><h4>Services</h4><ul>
         <li><a href="#services">Exercise Physiology</a></li><li><a href="#services">Physiotherapy</a></li><li><a href="#services">Dietetics</a></li><li><a href="#services">Occupational Therapy</a></li><li><a href="#services">Massage Therapy</a></li></ul></div>
       <div><h4>Clinic</h4><ul>
-        <li><a href="#studio">The Studio</a></li><li><a href="#approach">Our Approach</a></li><li><a href="#funding">Funding</a></li><li><a href="#contact">Contact</a></li></ul></div>
+        <li><a href="#founder">About Steven</a></li><li><a href="#studio">The Studio</a></li><li><a href="#approach">Our Approach</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#funding">Funding</a></li><li><a href="#contact">Contact</a></li></ul></div>
       <div><h4>Visit</h4><ul>
         <li class="ph">Street address</li><li class="ph">Suburb NSW 0000</li><li class="ph">(02) 0000 0000</li></ul></div>
     </div>
     <div class="foot-bottom">
-      <span>© <span id="yr">2026</span> Liv Healthcare. All rights reserved.</span>
+      <span>© <span id="yr">2026</span> LIV Healthcare. All rights reserved.</span>
       <span>Longevity · Inspiration · Vitality</span>
     </div>
   </div>
