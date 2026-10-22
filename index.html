@@ -188,6 +188,9 @@ canvas.silk{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-e
 .hero canvas.silk{opacity:0;transition:opacity 1.6s 1.9s}
 .hero.ready canvas.silk{opacity:1}
 
+/* page-long silk that follows the scroll (fixed canvas, sits above section backgrounds, below content) */
+#flow{position:fixed;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+
 /* scroll progress */
 .progress{position:fixed;left:0;top:0;height:2px;width:100%;z-index:60;background:var(--grad);transform-origin:left;transform:scaleX(0);pointer-events:none}
 
@@ -224,6 +227,11 @@ html.lenis,html.lenis body{height:auto}
 .hero-media.in .frame img{scale:1.08}
 .float-card{opacity:0;translate:0 24px;transition:opacity .9s 3.2s,translate .9s 3.2s cubic-bezier(.2,.7,.2,1)}
 .hero-media.in .float-card{opacity:1;translate:0 0}
+
+/* once the intro has gone, anything in the hero revealed later (e.g. below the fold on phones) shouldn't wait */
+.intro-done .hero .rv,.intro-done .lines .ln>span,.intro-done .hero .swash::after{transition-delay:.05s!important}
+.intro-done .hero-media .frame,.intro-done .hero-media .frame img{transition-delay:.05s}
+.intro-done .float-card{transition-delay:.9s}
 
 /* L · I · V written on */
 .pillar .letter{clip-path:inset(-10% 100% -10% 0);transition:clip-path 1.3s .35s cubic-bezier(.6,0,.2,1)}
@@ -385,10 +393,10 @@ em.g{background-size:220% 100%;animation:sheen 7s ease-in-out infinite alternate
 </header>
 
 <main id="top">
+<canvas id="flow" aria-hidden="true"></canvas>
 
 <!-- HERO -->
 <section class="hero" id="hero">
-  <canvas class="silk" data-silk="hero"></canvas>
   <div class="wrap hero-grid">
     <div>
       <div class="eyebrow rv">Exercise Physiology · Physiotherapy · Allied Health</div>
@@ -514,7 +522,6 @@ em.g{background-size:220% 100%;animation:sheen 7s ease-in-out infinite alternate
 
 <!-- STUDIO -->
 <section class="studio" id="studio">
-  <canvas class="silk" data-silk="studio"></canvas>
   <div class="wrap studio-grid">
     <div>
       <div class="eyebrow rv">The studio</div>
@@ -707,14 +714,79 @@ em.g{background-size:220% 100%;animation:sheen 7s ease-in-out infinite alternate
   }
   document.querySelectorAll('canvas.silk').forEach(c=>Silk(c,PRESETS[c.dataset.silk]));
 
+
+  // ── Flow: one silk ribbon running the length of the page. It weaves through the side margins,
+  //    crosses over in the gaps between sections, and is drawn down the page as you scroll.
+  const flow=(()=>{
+    const cv=document.getElementById('flow'),ctx=cv.getContext('2d'),main=document.querySelector('main');
+    let W=0,H=0,pts=[],len=0,cur=0,goal=0,t=0,last=0,mob=false,on=false,mx=.5,heroEnd=0;
+    const catmull=P=>{const out=[];
+      for(let i=0;i<P.length-1;i++){const a=P[i-1]||P[i],b=P[i],c=P[i+1],d=P[i+2]||c;
+        for(let k=0;k<28;k++){const u=k/28,u2=u*u,u3=u2*u,f=(A,B,C,D)=>.5*(2*B+(-A+C)*u+(2*A-5*B+4*C-D)*u2+(-A+3*B-3*C+D)*u3);
+          out.push([f(a[0],b[0],c[0],d[0]),f(a[1],b[1],c[1],d[1])])}}
+      out.push(P[P.length-1]);return out};
+    function build(){
+      const d=Math.min(2,devicePixelRatio||1);W=innerWidth;H=innerHeight;
+      cv.width=Math.round(W*d);cv.height=Math.round(H*d);ctx.setTransform(d,0,0,d,0,0);
+      const PW=main.clientWidth,top=main.getBoundingClientRect().top+scrollY;mob=PW<720;
+      const free=Math.max(0,(PW-1240)/2),L=free>70?free*.55:(mob?8:PW*.03),R=PW-L,wob=mob?4:Math.min(36,PW*.03);
+      const secs=[...main.querySelectorAll(':scope > section')].map(s=>({t:s.offsetTop+top,b:s.offsetTop+s.offsetHeight+top}));
+      const hero=secs[0];heroEnd=hero.b+20;const way=[[-120,hero.t+hero.b*.42],[PW*.08,hero.b-110],[PW*.32,hero.b-34],[PW*.64,hero.b-46],[R,hero.b+70]];
+      let i=-1;
+      secs.slice(1).forEach(s=>{const h=s.b-s.t;if(h<560){i--;return}i++;
+        const x=i%2?L:R,inw=i%2?1:-1;
+        if(i===0)way.push([x+inw*wob,s.t+h*.5],[x,s.b-100]);else way.push([x,s.t+100],[x+inw*wob,s.t+h*.5],[x,s.b-100])});
+      const lastS=secs[secs.length-1];way.push([PW*.5,lastS.b-40]);
+      // resample the curve evenly along its length, with a normal at each point
+      const dense=catmull(way);pts=[];let acc=0,next=0;
+      for(let k=1;k<dense.length;k++){const [x0,y0]=dense[k-1],[x1,y1]=dense[k],seg=Math.hypot(x1-x0,y1-y0);
+        while(next<=acc+seg){const r=seg?(next-acc)/seg:0;pts.push({l:next,x:x0+(x1-x0)*r,y:y0+(y1-y0)*r,tx:(x1-x0)/(seg||1),ty:(y1-y0)/(seg||1)});next+=6}
+        acc+=seg}
+      len=acc;goal=target();if(still)cur=len;draw();
+    }
+    function target(){if(!on)return 0;if(still)return len;const y=Math.max(scrollY+H*.78,heroEnd);let best=0;
+      for(let k=0;k<pts.length;k++)if(pts[k].y<=y)best=k;return pts[best]?pts[best].l:0}
+    function draw(){
+      ctx.clearRect(0,0,W,H);if(!pts.length||cur<2)return;
+      const sy=scrollY,top=sy-120,bot=sy+H+120,N=mob?14:26,half=mob?10:40,amax=mob?.24:.36;
+      const g=ctx.createLinearGradient(0,-sy,0,pts[pts.length-1].y-sy);
+      g.addColorStop(0,'#2f7be8');g.addColorStop(.5,'#3d4fe0');g.addColorStop(1,'#8a3fe0');
+      ctx.strokeStyle=g;ctx.lineWidth=1;
+      const lastK=Math.min(pts.length-1,Math.floor(cur/6));
+      for(let i=0;i<N;i++){
+        const s=i/(N-1)-.5;ctx.globalAlpha=amax*(.3+.7*(1-Math.abs(s)*1.7));
+        ctx.beginPath();let pen=false;
+        for(let k=0;k<=lastK;k++){const p=pts[k];
+          if(p.y<top||p.y>bot){pen=false;continue}
+          // ends taper in; the ribbon slowly turns over (twist) and breathes (width)
+          const env=Math.min(1,p.l/260)*Math.min(1,(cur-p.l)/320);
+          const tw=Math.cos(p.l*.0032-t*.35+(mx-.5)*.8),w=half*(.6+.4*Math.sin(p.l*.0011+t*.22));
+          const off=(s*2*w*tw+s*s*w*.35*Math.sin(p.l*.009+t*.55))*env;
+          const x=p.x-p.ty*off,y=p.y+p.tx*off-sy;
+          if(!pen){ctx.moveTo(x,y);pen=true}else ctx.lineTo(x,y)}
+        ctx.stroke()}
+      // a soft glow at the leading end
+      const h=pts[lastK];if(cur<len-4&&h.y>top&&h.y<bot){ctx.globalAlpha=1;
+        const r=ctx.createRadialGradient(h.x,h.y-sy,0,h.x,h.y-sy,mob?18:28);r.addColorStop(0,'rgba(138,63,224,.35)');r.addColorStop(1,'rgba(138,63,224,0)');
+        ctx.fillStyle=r;ctx.beginPath();ctx.arc(h.x,h.y-sy,mob?18:28,0,7);ctx.fill()}
+    }
+    function loop(ts){const dt=last?Math.min(.05,(ts-last)/1000):0;last=ts;t+=dt;
+      goal=target();cur+=(goal-cur)*.07;if(Math.abs(goal-cur)<.5)cur=goal;draw();requestAnimationFrame(loop)}
+    let rt;const rebuild=()=>{clearTimeout(rt);rt=setTimeout(build,150)};
+    addEventListener('resize',rebuild);new ResizeObserver(rebuild).observe(main);
+    addEventListener('pointermove',e=>{mx+=(e.clientX/innerWidth-mx)*.1},{passive:true});
+    document.fonts?.ready.then(build);build();
+    if(still)addEventListener('scroll',draw,{passive:true});else requestAnimationFrame(loop);
+    return {start(){on=true;if(still){cur=len;draw()}}};
+  })();
   // ── Intro: silk sweeps across, logo comes into focus, then it all dissolves into the page
   const intro=document.getElementById('intro'),hero=document.getElementById('hero');
   let lenis=null;
   const endIntro=()=>{if(!intro.isConnected||intro.classList.contains('out'))return;
-    intro.classList.add('out');hero.classList.add('ready');lenis&&lenis.start();
-    setTimeout(()=>{introSilk.stop();intro.remove()},1100)};
+    intro.classList.add('out');hero.classList.add('ready');lenis&&lenis.start();flow.start();
+    setTimeout(()=>{introSilk.stop();intro.remove()},1100);setTimeout(()=>document.body.classList.add('intro-done'),4200)};
   const introSilk=Silk(document.getElementById('introSilk'),{...PRESETS.intro,reveal:still?0:1.5});
-  if(still){intro.remove();hero.classList.add('ready')}
+  if(still){intro.remove();hero.classList.add('ready');document.body.classList.add('intro-done');flow.start()}
   else{setTimeout(endIntro,2300);intro.addEventListener('click',endIntro)}
 
   // ── Smooth scrolling + anchor links + progress bar
